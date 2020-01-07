@@ -5,7 +5,13 @@ import matplotlib.pyplot as plt
 
 stroop_data = pd.read_csv('stroopdata.csv')
 
-## 3.mean&std
+## 1. 自变量是文字条件，因变量是说出墨色名称的时间
+
+## 2. 零假设： 在一致文字条件和不一致文字条件下，参与者谁出墨色名称的时间一样。
+##    对立假设：在一致文字条件和不一致文字条件下，参与者谁出墨色名称的时间不一样。
+##    零假设 H0 ：μ= μI 对立假设 HA：μ≠μI
+
+## 3.mean&std 
 
 congruent_data = stroop_data['Congruent']
 incongruent_data = stroop_data['Incongruent']
