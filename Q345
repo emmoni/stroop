@@ -1,0 +1,33 @@
+# stroop
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+stroop_data = pd.read_csv('stroopdata.csv')
+
+## 3.mean&std
+
+congruent_data = stroop_data['Congruent']
+incongruent_data = stroop_data['Incongruent']
+print("congruent_data's mean:",'%.2f' % congruent_data.mean())
+print("congruent_data's standard deviation:",'%.2f' % congruent_data.std())
+print("incongruent_data's mean:",'%.2f' % incongruent_data.mean())
+print("incongruent_data's standard deviation:",'%.2f' % incongruent_data.std())
+
+
+
+## 4.data visualization
+x = np.arange(len(stroop_data))+1
+plt.bar(x,stroop_data['Congruent'],color = 'blue', width= 0.25)
+plt.bar(x+0.25,stroop_data['Incongruent'],color = 'orange', width= 0.25)
+plt.xticks(x,stroop_data.index)
+plt.legend(['congruent','incongruent'])
+plt.show() 
+
+##5.ttest
+if stats.ttest_rel(stroop_data['Congruent'],stroop_data['Incongruent'])[1] <0.05:
+    print(stats.ttest_rel(stroop_data['Congruent'],stroop_data['Incongruent']))
+    print('Reject the null')
+else:
+    print(stats.ttest_rel(stroop_data['Congruent'], stroop_data['Incongruent']))
+    print('Fail to reject the null')
